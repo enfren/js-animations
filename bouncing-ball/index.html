@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head><title>Bouncing Ball</title></head>
+<body style="margin:0;background:#111;overflow:hidden">
+<canvas id="c" width="600" height="400" style="display:block;margin:50px auto;border:1px solid #333"></canvas>
+<script>
+const c = document.getElementById('c'), ctx = c.getContext('2d');
+
+// Ball state
+let x = 300, y = 50;
+let vx = 4, vy = 0;
+const r = 20;
+const gravity = 0.4;
+const bounce = 0.8; // energy lost per bounce
+
+function loop() {
+  ctx.fillStyle = '#111';
+  ctx.fillRect(0, 0, c.width, c.height);
+
+  // Apply gravity
+  vy += gravity;
+  x += vx;
+  y += vy;
+
+  // Bounce off floor
+  if (y + r > c.height) {
+    y = c.height - r;
+    vy *= -bounce;
+  }
+  // Bounce off walls
+  if (x + r > c.width || x - r < 0) vx *= -1;
+
+  // Draw ball
+  ctx.fillStyle = '#0f0';
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fill();
+
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
+</body>
+</html>   

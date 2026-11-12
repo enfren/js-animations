@@ -8,3 +8,11 @@ Simple standalone Canvas animations. No dependencies.
 | [Mouse Trail](https://enfren.github.io/js-animations/mouse-trail/) | Colorful particles follow your cursor |
 
 Each demo is a single `index.html` file. Just open it in a browser. 
+
+## Ideas to Add
+- Sine wave
+- Lissajous curves
+- Simple particle explosion
+- Fractal tree
+
+Fork it, add one, send a PR. 
